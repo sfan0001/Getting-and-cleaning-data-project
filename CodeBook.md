@@ -83,13 +83,12 @@ The second to 181th rows are the actual data. Each row contains a subject ID, an
         - FrequencyBodyGyroscopeJerkMagnitude-mean
         - FrequencyBodyGyroscopeJerkMagnitude-std
 # Transformations 
-Transformations applied to the source data:
-    - The training and test sets were merged to create one data set.
-    - The measurements on the mean and standard deviation were extracted for each measurement, and the others were discarded.
-    - The activity identifiers (originally coded as integers between 1 and 6) were replaced with actual activity names.
-    - The variable names were replaced with descriptive variable names (e.g. tBodyAcc-mean()-X was expanded to timeBodyAccelerometer-Mean-X), using the following set of rules:
-        - Special characters (i.e. (, ), and -) were removed
-        - The initial f and t were expanded to Frequency and Time,respectively.
-        - Acc, Gyro, Mag were replaced with Accelerometer, Gyroscope, Magnitude, respectively.
-        - The redundant "BodyBody" were replaced with "Body".
-        - The final data set was created with the mean of each of 66 feature variables in each group determined by the combinations of subject IDs and activity names.
+- The training and test sets were merged to create one data set.
+- The measurements on the mean and standard deviation were extracted for each measurement, and the others were discarded.
+- The activity identifiers (originally coded as integers between 1 and 6) were replaced with actual activity names.
+- The variable names were replaced with descriptive variable names (e.g. tBodyAcc-mean()-X was expanded to timeBodyAccelerometer-Mean-X), using the following set of rules:
+    - Special characters (i.e. (, ), and -) were removed
+    - The initial f and t were expanded to Frequency and Time,respectively.
+    - Acc, Gyro, Mag were replaced with Accelerometer, Gyroscope, Magnitude, respectively.
+    - The redundant "BodyBody" were replaced with "Body".
+    - The final data set was created with the mean of each of 66 feature variables in each group determined by the combinations of subject IDs and activity names.
