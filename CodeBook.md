@@ -1,0 +1,95 @@
+This code book describes the variables, the data in the cleaned tidy dataset "tidy_data.txt" and any transformations performed to obtain this dataset.
+# Data
+The first row of "tidy_data.txt" contains the names of the 68 variables, including two identifier variables and 66 feature variables.
+The second to 181th rows are the actual data. Each row contains a subject ID, an activity name, and 66 floating point values bounded within [-1,1]. Each floating point value is the mean measurement of one feature pertaining to a specific group determined by a subject ID and an activity name.
+# Variables
+- Identifiers
+    - subjectID: Subject identifier, integer, ranges from 1 to 30.
+    - activityname: Activity identifier, string with 6 possible values:
+      - WALKING: subject was walking
+      - WALKING_UPSTAIRS: subject was walking upstairs
+      - WALKING_DOWNSTAIRS: subject was walking downstairs
+      - SITTING: subject was sitting
+      - STANDING: subject was standing
+      - LAYING: subject was laying
+- Features
+    - Time-domain signals
+         - TimeBodyAccelerometer-mean-X
+        - TimeBodyAccelerometer-mean-Y
+        - TimeBodyAccelerometer-mean-Z
+        - TimeBodyAccelerometer-std-X
+        - TimeBodyAccelerometer-std-Y
+        - TimeBodyAccelerometer-std-Z
+        - TimeGravityAccelerometer-mean-X
+        - TimeGravityAccelerometer-mean-Y
+        - TimeGravityAccelerometer-mean-Z
+        - TimeGravityAccelerometer-std-X
+        - TimeGravityAccelerometer-std-Y
+        - TimeGravityAccelerometer-std-Z
+        - TimeBodyAccelerometerJerk-mean-X
+        - TimeBodyAccelerometerJerk-mean-Y
+        - TimeBodyAccelerometerJerk-mean-Z
+        - TimeBodyAccelerometerJerk-std-X
+        - TimeBodyAccelerometerJerk-std-Y
+        - TimeBodyAccelerometerJerk-std-Z
+        - TimeBodyGyroscope-mean-X
+        - TimeBodyGyroscope-mean-Y
+        - TimeBodyGyroscope-mean-Z
+        - TimeBodyGyroscope-std-X
+        - TimeBodyGyroscope-std-Y
+        - TimeBodyGyroscope-std-Z
+        - TimeBodyGyroscopeJerk-mean-X
+        - TimeBodyGyroscopeJerk-mean-Y
+        - TimeBodyGyroscopeJerk-mean-Z
+        - TimeBodyGyroscopeJerk-std-X
+        - TimeBodyGyroscopeJerk-std-Y
+        - TimeBodyGyroscopeJerk-std-Z
+        - TimeBodyAccelerometerMagnitude-mean
+        - TimeBodyAccelerometerMagnitude-std
+        - TimeGravityAccelerometerMagnitude-mean
+        - TimeGravityAccelerometerMagnitude-std
+        - TimeBodyAccelerometerJerkMagnitude-mean
+        - TimeBodyAccelerometerJerkMagnitude-std
+        - TimeBodyGyroscopeMagnitude-mean
+        - TimeBodyGyroscopeMagnitude-std
+        - TimeBodyGyroscopeJerkMagnitude-mean
+        - TimeBodyGyroscopeJerkMagnitude-std
+
+    - Frequency-domain signals
+        - FrequencyBodyAccelerometer-mean-X
+        - FrequencyBodyAccelerometer-mean-Y
+        - FrequencyBodyAccelerometer-mean-Z
+        - FrequencyBodyAccelerometer-std-X
+        - FrequencyBodyAccelerometer-std-Y
+        - FrequencyBodyAccelerometer-std-Z
+        - FrequencyBodyAccelerometerJerk-mean-X
+        - FrequencyBodyAccelerometerJerk-mean-Y
+        - FrequencyBodyAccelerometerJerk-mean-Z
+        - FrequencyBodyAccelerometerJerk-std-X
+        - FrequencyBodyAccelerometerJerk-std-Y
+        - FrequencyBodyAccelerometerJerk-std-Z
+        - FrequencyBodyGyroscope-mean-X
+        - FrequencyBodyGyroscope-mean-Y
+        - FrequencyBodyGyroscope-mean-Z
+        - FrequencyBodyGyroscope-std-X
+        - FrequencyBodyGyroscope-std-Y
+        - FrequencyBodyGyroscope-std-Z
+        - FrequencyBodyAccelerometerMagnitude-mean
+        - FrequencyBodyAccelerometerMagnitude-std
+        - FrequencyBodyAccelerometerJerkMagnitude-mean
+        - FrequencyBodyAccelerometerJerkMagnitude-std
+        - FrequencyBodyGyroscopeMagnitude-mean
+        - FrequencyBodyGyroscopeMagnitude-std
+        - FrequencyBodyGyroscopeJerkMagnitude-mean
+        - FrequencyBodyGyroscopeJerkMagnitude-std
+# Transformations 
+Transformations applied to the source data:
+    - The training and test sets were merged to create one data set.
+    - The measurements on the mean and standard deviation were extracted for each measurement, and the others were discarded.
+    - The activity identifiers (originally coded as integers between 1 and 6) were replaced with actual activity names.
+    - The variable names were replaced with descriptive variable names (e.g. tBodyAcc-mean()-X was expanded to timeBodyAccelerometer-Mean-X), using the following set of rules:
+        - Special characters (i.e. (, ), and -) were removed
+        - The initial f and t were expanded to Frequency and Time,respectively.
+        - Acc, Gyro, Mag were replaced with Accelerometer, Gyroscope, Magnitude, respectively.
+        - The redundant "BodyBody" were replaced with "Body".
+        - The final data set was created with the mean of each of 66 feature variables in each group determined by the combinations of subject IDs and activity names.
